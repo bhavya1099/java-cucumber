@@ -57,6 +57,7 @@ Details:
 */
 
 // ********RoostGPT********
+
 package br.masmangan.beecrowd.bee1005;
 
 import org.junit.Test;

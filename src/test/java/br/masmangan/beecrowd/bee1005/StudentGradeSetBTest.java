@@ -62,6 +62,11 @@ Details:
 */
 
 // ********RoostGPT********
-public double getB() {
-    return this.b;
+
+public class ClassName {
+    private double b;
+
+    public double getB() {
+        return this.b;
+    }
 }

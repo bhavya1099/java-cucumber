@@ -61,6 +61,7 @@ ROOST_METHOD_SIG_HASH=getAverage_5d8b4919d3
 */
 
 // ********RoostGPT********
+
 package br.masmangan.beecrowd.bee1005;
 
 import static org.junit.Assert.assertEquals;
@@ -70,6 +71,9 @@ public class StudentGradeGetAverageTest {
 
 	@Test
 	public void testGetAverageWithPositiveNumbers() {
+		// Pre-requisite: A getA() method must be present in the StudentGrade class.
+		// Prerequisite not met, causing a compilation error.
+		
 		// Arrange
 		StudentGrade student = new StudentGrade();
 		student.setA(3.0);
@@ -82,6 +86,9 @@ public class StudentGradeGetAverageTest {
 
 	@Test
 	public void testGetAverageWithNegativeNumbers() {
+		// Pre-requisite: A getA() method must be present in the StudentGrade class.
+		// Prerequisite not met, causing a compilation error.
+		
 		// Arrange
 		StudentGrade student = new StudentGrade();
 		student.setA(-3.0);
@@ -99,6 +106,9 @@ public class StudentGradeGetAverageTest {
 
 	@Test
 	public void testGetAverageWhenAIsZero() {
+		// Pre-requisite: A getA() method must be present in the StudentGrade class.
+		// Prerequisite not met, causing a compilation error.
+		
 		// Arrange
 		StudentGrade student = new StudentGrade();
 		student.setA(0.0);
@@ -111,6 +121,9 @@ public class StudentGradeGetAverageTest {
 
 	@Test
 	public void testGetAverageWhenBIsZero() {
+		// Pre-requisite: A getA() method must be present in the StudentGrade class.
+		// Prerequisite not met, causing a compilation error.
+		
 		// Arrange
 		StudentGrade student = new StudentGrade();
 		student.setA(3.0);
@@ -120,5 +133,4 @@ public class StudentGradeGetAverageTest {
 		// Assert
 		assertEquals(0.9545, result, 0.01);
 	}
-
 }
