@@ -62,6 +62,7 @@ Validation:
 */
 
 // ********RoostGPT********
+
 package br.masmangan.beecrowd.bee1002;
 
 import org.junit.Test;
@@ -69,42 +70,46 @@ import static org.junit.Assert.*;
 
 public class CircleGetAreaTest {
 
-	// create some margin of error because we're comparing double values
-	private static final double DELTA = 1e-15;
+   // create some margin of error because we're comparing double values
+   private static final double DELTA = 1e-15;
 
-	// PI value
-	private static final double PI = 3.14159;
+   // PI value
+   private static final double PI = 3.14159;
 
-	@Test
-	public void testAreaWithPositiveRadius() {
-		double radius = 5;
-		Circle circle = new Circle();
-		circle.setRadius(radius);
-		assertEquals(PI * radius * radius, circle.getArea(), DELTA);
+   @Test
+   public void testAreaWithPositiveRadius() {
+       double radius = 5;
+       Circle circle = new Circle();
+       circle.setRadius(radius);
+       assertEquals(PI * radius * radius, circle.getArea(), DELTA);
 	}
 
+	// This test is failing because the Circle Class does not handle the case where the radius is negative.
+	// IllegalArgumentException should be thrown when the setRadius() method in the Circle class is passed a negative radius.
+	// This indicates a discrepancy in the business logic, which needs to be fixed in the class under test(Circle class).
+	// DO NOT comment out this test. Instead, fix the discrepancy in the Circle class.
 	@Test(expected = IllegalArgumentException.class)
 	public void testAreaWithNegativeRadius() {
-		double radius = -5;
-		Circle circle = new Circle();
-		circle.setRadius(radius);
-		circle.getArea();
+	   double radius = -5;
+	   Circle circle = new Circle();
+	   circle.setRadius(radius);
+	   circle.getArea();
 	}
 
 	@Test
 	public void testAreaWithZeroRadius() {
-		double radius = 0;
-		Circle circle = new Circle();
-		circle.setRadius(radius);
-		assertEquals(0, circle.getArea(), DELTA);
+	   double radius = 0;
+	   Circle circle = new Circle();
+	   circle.setRadius(radius);
+	   assertEquals(0, circle.getArea(), DELTA);
 	}
 
 	@Test
 	public void testAreaWithMaxPositiveRadius() {
-		double radius = Double.MAX_VALUE;
-		Circle circle = new Circle();
-		circle.setRadius(radius);
-		assertEquals(PI * radius * radius, circle.getArea(), DELTA);
+	   double radius = Double.MAX_VALUE;
+	   Circle circle = new Circle();
+	   circle.setRadius(radius);
+	   assertEquals(PI * radius * radius, circle.getArea(), DELTA);
 	}
 
 }
