@@ -61,30 +61,28 @@ ROOST_METHOD_SIG_HASH=getAverage_5d8b4919d3
 */
 
 // ********RoostGPT********
+
 public class StudentGrade {
+    private double a;
+    private double b;
 
-	private double a;
+    public void setA(double a) {
+        this.a = a;
+    }
 
-	private double b;
+    public double getA() {
+        return this.a;
+    }
 
-	public void setA(double a) {
-		this.a = a;
-	}
+    public void setB(double b) {
+        this.b = b;
+    }
 
-	public double getA() {
-		return this.a;
-	}
-
-	public void setB(double b) {
-		this.b = b;
-	}
-
-	public double getB() {
-		return this.b;
-	}
-
-	public double getAverage() {
-		return (a * 3.5 + b * 7.5) / 11.0;
-	}
-
+    public double getB() {
+        return this.b;
+    }
+    
+    public double getAverage() {
+        return (a * 3.5 + b * 7.5) / 11.0;
+    }
 }
