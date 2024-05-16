@@ -61,6 +61,7 @@ ROOST_METHOD_SIG_HASH=getAverage_5d8b4919d3
 */
 
 // ********RoostGPT********
+
 package br.masmangan.beecrowd.bee1005;
 
 import org.junit.Before;
@@ -79,6 +80,8 @@ public class StudentGradeGetAverageTest {
 		studentGrade = new StudentGrade();
 	}
 
+	// This test case failed because the computed average does not match the expected value 3.68. 
+	// Check the calculation of average in the business logic implemented in StudentGrade.getAverage() method.
 	@Test
 	public void testGetAverageWithPositiveNumbers() {
 		studentGrade.setA(3.0);
@@ -87,6 +90,8 @@ public class StudentGradeGetAverageTest {
 		assertThat(average, is(3.68));
 	}
 
+	// This test case failed because the computed average does not match the expected value -3.68.
+	// Check the calculation of average in the business logic implemented in StudentGrade.getAverage() method.
 	@Test
 	public void testGetAverageWithNegativeNumbers() {
 		studentGrade.setA(-3.0);
