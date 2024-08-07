@@ -71,18 +71,18 @@ import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertThrows;
 import org.junit.Test;
 import org.junit.experimental.categories.Category;
-import Categories.boundary;
-import Categories.invalid;
-import Categories.valid;
+// import Categories.boundary;
+// import Categories.invalid;
+// import Categories.valid;
 import org.junit.experimental.categories.Category;
 
 @Category({ Categories.setC.class })
 public class ProductSetCTest {
 
 	@Test
-	@Category(valid.class)
+	@Category(Categories.valid.class)
 	public void setCWithValidValue() {
-		ProductSetC productSetC = new ProductSetC();
+		Product productSetC = new Product();
 		productSetC.setA(1);
 		productSetC.setB(2);
 		productSetC.setD(4);
@@ -91,9 +91,9 @@ public class ProductSetCTest {
 	}
 
 	@Test
-	@Category(valid.class)
+	@Category(Categories.valid.class)
 	public void setCWithNegativeValue() {
-		ProductSetC productSetC = new ProductSetC();
+		Product productSetC = new Product();
 		productSetC.setA(1);
 		productSetC.setB(2);
 		productSetC.setD(4);
@@ -102,9 +102,9 @@ public class ProductSetCTest {
 	}
 
 	@Test
-	@Category(boundary.class)
+	@Category(Categories.boundary.class)
 	public void setCWithOutOfRangeValue() {
-		ProductSetC productSetC = new ProductSetC();
+		Product productSetC = new Product();
 		productSetC.setA(1);
 		productSetC.setB(2);
 		productSetC.setD(4);
@@ -112,9 +112,9 @@ public class ProductSetCTest {
 	}
 
 	@Test
-	@Category(valid.class)
+	@Category(Categories.valid.class)
 	public void setCWithZeroValue() {
-		ProductSetC productSetC = new ProductSetC();
+		Product productSetC = new Product();
 		productSetC.setA(1);
 		productSetC.setB(2);
 		productSetC.setD(4);
@@ -123,9 +123,9 @@ public class ProductSetCTest {
 	}
 
 	@Test
-	@Category(invalid.class)
+	@Category(Categories.invalid.class)
 	public void setCWithNullValue() {
-		ProductSetC productSetC = new ProductSetC();
+		Product productSetC = new Product();
 		productSetC.setA(1);
 		productSetC.setB(2);
 		productSetC.setD(4);

@@ -72,50 +72,47 @@ import static org.junit.Assert.assertThrows;
 import static org.junit.Assert.assertTrue;
 import org.junit.Test;
 import org.junit.experimental.categories.Category;
-import Categories.boundary;
-import Categories.invalid;
-import Categories.integration;
-import Categories.valid;
+
 import org.junit.experimental.categories.Category;
 
 @Category({ Categories.setA.class })
 public class ProductSetATest {
 
 	@Test
-	@Category(valid.class)
+	@Category(Categories.valid.class)
 	public void setAWithValidValue() {
-		ProductSet productSet = new ProductSet();
+		Product productSet = new Product();
 		productSet.setA(10);
 		assertEquals(10, productSet.getA());
 	}
 
 	@Test
-	@Category(valid.class)
+	@Category(Categories.valid.class)
 	public void setAWithNegativeValue() {
-		ProductSet productSet = new ProductSet();
+		Product productSet = new Product();
 		productSet.setA(-5);
 		assertEquals(-5, productSet.getA());
 	}
 
 	@Test
-	@Category(valid.class)
+	@Category(Categories.valid.class)
 	public void setAWithZeroValue() {
-		ProductSet productSet = new ProductSet();
+		Product productSet = new Product();
 		productSet.setA(0);
 		assertEquals(0, productSet.getA());
 	}
 
 	@Test
-	@Category(invalid.class)
+	@Category(Categories.invalid.class)
 	public void setAWithNonIntegerValue() {
-		ProductSet productSet = new ProductSet();
+		Product productSet = new Product();
 		assertThrows(NumberFormatException.class, () -> productSet.setA(Integer.parseInt("a")));
 	}
 
 	@Test
-	@Category(valid.class)
+	@Category(Categories.valid.class)
 	public void setAMultipleTimes() {
-		ProductSet productSet = new ProductSet();
+		Product productSet = new Product();
 		productSet.setA(10);
 		productSet.setA(20);
 		productSet.setA(30);

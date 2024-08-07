@@ -61,10 +61,10 @@ ROOST_METHOD_SIG_HASH=setB_d19f9d277f
 // ********RoostGPT********
 package br.masmangan.beecrowd.bee1005;
 
-import br.masmangan.beecrowd.bee1005.StudentGradeSetB;
+import br.masmangan.beecrowd.bee1005.StudentGrade;
 import org.junit.Assert;
 import org.junit.Test;
-import org.junit.experimental.categories.Categories;
+// import org.junit.experimental.categories.Categories;
 import org.junit.runner.RunWith;
 import org.junit.runners.Suite;
 import org.junit.experimental.categories.Category;
@@ -81,7 +81,7 @@ public class StudentGradeSetBTest {
 		@Test
 		public void setB_ValidDoubleValue() {
 			// Arrange
-			StudentGradeSetB student = new StudentGradeSetB();
+			StudentGrade student = new StudentGrade();
 			// Act
 			student.setB(1.5);
 			// Assert
@@ -91,7 +91,7 @@ public class StudentGradeSetBTest {
 		@Test
 		public void setB_NegativeDoubleValue() {
 			// Arrange
-			StudentGradeSetB student = new StudentGradeSetB();
+			StudentGrade student = new StudentGrade();
 			// Act
 			student.setB(-3.2);
 			// Assert
@@ -101,7 +101,7 @@ public class StudentGradeSetBTest {
 		@Test
 		public void setB_ZeroValue() {
 			// Arrange
-			StudentGradeSetB student = new StudentGradeSetB();
+			StudentGrade student = new StudentGrade();
 			// Act
 			student.setB(0.0);
 			// Assert
@@ -111,7 +111,7 @@ public class StudentGradeSetBTest {
 		@Test
 		public void setB_HighPrecisionDoubleValue() {
 			// Arrange
-			StudentGradeSetB student = new StudentGradeSetB();
+			StudentGrade student = new StudentGrade();
 			// Act
 			student.setB(123.456789);
 			// Assert
@@ -127,7 +127,7 @@ public class StudentGradeSetBTest {
 		@Test
 		public void setB_OutOfRangeDoubleValue() {
 			// Arrange
-			StudentGradeSetB student = new StudentGradeSetB();
+			StudentGrade student = new StudentGrade();
 			// Act
 			// TODO: Set an out-of-range double value based on your specific requirements.
 			student.setB(Double.MAX_VALUE);
@@ -140,7 +140,7 @@ public class StudentGradeSetBTest {
 		@Test
 		public void setB_NaNValue() {
 			// Arrange
-			StudentGradeSetB student = new StudentGradeSetB();
+			StudentGrade student = new StudentGrade();
 			// Act
 			student.setB(Double.NaN);
 			// Assert

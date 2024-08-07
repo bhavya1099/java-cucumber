@@ -57,7 +57,6 @@ package br.masmangan.beecrowd.bee1005;
 
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Tag;
-import org.junit.jupiter.api.Test;
 import org.junit.jupiter.params.ParameterizedTest;
 import org.junit.jupiter.params.provider.CsvSource;
 import static org.junit.jupiter.api.Assertions.assertEquals;
@@ -73,7 +72,7 @@ class StudentGradeGetAverageTest {
 
 	@ParameterizedTest
 	@CsvSource({ "10.0, 20.0, 18.181818181818183", "-5.0, -10.0, -8.636363636363637", "0.0, 0.0, 0.0" })
-	@Tag(Categories.valid.class)
+	@Category(Categories.valid.class)
 	@DisplayName("Test average calculation with valid input")
 	void testAverageWithValidInput(double a, double b, double expectedAverage) {
 		studentGrade.setA(a);
@@ -83,14 +82,14 @@ class StudentGradeGetAverageTest {
 	}
 
 	@Test
-	@Tag(Categories.invalid.class)
+	@Category(Categories.invalid.class)
 	@DisplayName("Test average calculation with null values")
 	void testAverageWithNullValues() {
 		assertThrows(NullPointerException.class, () -> studentGrade.getAverage());
 	}
 
 	@Test
-	@Tag(Categories.boundary.class)
+	@Category(Categories.boundary.class)
 	@DisplayName("Test average calculation with boundary values")
 	void testAverageWithBoundaryValues() {
 		studentGrade.setA(Double.MIN_VALUE);
@@ -100,7 +99,7 @@ class StudentGradeGetAverageTest {
 	}
 
 	@Test
-	@Tag(Categories.invalid.class)
+	@Category(Categories.invalid.class)
 	@DisplayName("Test average calculation with special values")
 	void testAverageWithSpecialValues() {
 		studentGrade.setA(Double.NaN);

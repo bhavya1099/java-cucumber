@@ -57,8 +57,6 @@ package br.masmangan.beecrowd.bee1007;
 
 import org.junit.Test;
 import org.junit.experimental.categories.Category;
-import br.masmangan.beecrowd.bee1007.Categories;
-import br.masmangan.beecrowd.bee1007.ProductSetB;
 import static org.junit.Assert.assertEquals;
 import org.junit.experimental.categories.Category;
 
@@ -68,15 +66,15 @@ public class ProductSetBTest {
 	@Test
 	@Category(Categories.valid.class)
 	public void setBWithValidPositiveInteger() {
-		ProductSetB productSetB = new ProductSetB();
-		productSetB.setB(10);
-		assertEquals(10, productSetB.getB());
+		Product ProductSetB = new Product();
+		ProductSetB.setB(10);
+		assertEquals(10, ProductSetB.getB());
 	}
 
 	@Test
 	@Category(Categories.valid.class)
 	public void setBWithValidNegativeInteger() {
-		ProductSetB productSetB = new ProductSetB();
+		Product productSetB = new Product();
 		productSetB.setB(-5);
 		assertEquals(-5, productSetB.getB());
 	}
@@ -84,7 +82,7 @@ public class ProductSetBTest {
 	@Test
 	@Category(Categories.valid.class)
 	public void setBWithZero() {
-		ProductSetB productSetB = new ProductSetB();
+		Product productSetB = new Product();
 		productSetB.setB(0);
 		assertEquals(0, productSetB.getB());
 	}
@@ -92,7 +90,7 @@ public class ProductSetBTest {
 	@Test
 	@Category(Categories.boundary.class)
 	public void setBWithMaximumIntegerValue() {
-		ProductSetB productSetB = new ProductSetB();
+		Product productSetB = new Product();
 		productSetB.setB(Integer.MAX_VALUE);
 		assertEquals(Integer.MAX_VALUE, productSetB.getB());
 	}
@@ -100,7 +98,7 @@ public class ProductSetBTest {
 	@Test
 	@Category(Categories.boundary.class)
 	public void setBWithMinimumIntegerValue() {
-		ProductSetB productSetB = new ProductSetB();
+		Product productSetB = new Product();
 		productSetB.setB(Integer.MIN_VALUE);
 		assertEquals(Integer.MIN_VALUE, productSetB.getB());
 	}
@@ -108,7 +106,7 @@ public class ProductSetBTest {
 	@Test
 	@Category(Categories.invalid.class)
 	public void setBWithOutOfRangeValue() {
-		ProductSetB productSetB = new ProductSetB();
+		Product productSetB = new Product();
 		try {
 			productSetB.setB(Long.MAX_VALUE);
 		}
