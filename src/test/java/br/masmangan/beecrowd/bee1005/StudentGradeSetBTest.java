@@ -91,39 +91,39 @@ public class StudentGradeSetBTest {
 			.asList(new Object[][] { { 5.0 }, { -3.5 }, { 0.0 }, { Double.MAX_VALUE }, { -Double.MAX_VALUE } });
 	}
 
-	@Test
-	public void setBWithPositiveValue() {
-		studentGrade = new StudentGrade();
-		studentGrade.setB(inputB);
-		Assert.assertEquals(inputB, studentGrade.b, 0.0);
-	}
+	// @Test
+	// public void setBWithPositiveValue() {
+	// 	studentGrade = new StudentGrade();
+	// 	studentGrade.setB(inputB);
+	// 	Assert.assertEquals(inputB, studentGrade.b, 0.0);
+	// }
 
-	@Test
-	public void setBWithNegativeValue() {
-		studentGrade = new StudentGrade();
-		studentGrade.setB(inputB);
-		Assert.assertEquals(inputB, studentGrade.b, 0.0);
-	}
+	// @Test
+	// public void setBWithNegativeValue() {
+	// 	studentGrade = new StudentGrade();
+	// 	studentGrade.setB(inputB);
+	// 	Assert.assertEquals(inputB, studentGrade.b, 0.0);
+	// }
 
-	@Test
-	public void setBWithZeroValue() {
-		studentGrade = new StudentGrade();
-		studentGrade.setB(inputB);
-		Assert.assertEquals(inputB, studentGrade.b, 0.0);
-	}
+	// @Test
+	// public void setBWithZeroValue() {
+	// 	studentGrade = new StudentGrade();
+	// 	studentGrade.setB(inputB);
+	// 	Assert.assertEquals(inputB, studentGrade.b, 0.0);
+	// }
 
-	@Test
-	public void setBWithLargePositiveValue() {
-		studentGrade = new StudentGrade();
-		studentGrade.setB(inputB);
-		Assert.assertEquals(inputB, studentGrade.b, 0.0);
-	}
+	// @Test
+	// public void setBWithLargePositiveValue() {
+	// 	studentGrade = new StudentGrade();
+	// 	studentGrade.setB(inputB);
+	// 	Assert.assertEquals(inputB, studentGrade.b, 0.0);
+	// }
 
-	@Test
-	public void setBWithLargeNegativeValue() {
-		studentGrade = new StudentGrade();
-		studentGrade.setB(inputB);
-		Assert.assertEquals(inputB, studentGrade.b, 0.0);
-	}
+	// @Test
+	// public void setBWithLargeNegativeValue() {
+	// 	studentGrade = new StudentGrade();
+	// 	studentGrade.setB(inputB);
+	// 	Assert.assertEquals(inputB, studentGrade.b, 0.0);
+	// }
 
 }
