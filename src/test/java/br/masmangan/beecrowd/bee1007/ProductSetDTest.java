@@ -53,7 +53,7 @@ public class ProductSetDTest {
 	@Test
 	@Category(Categories.valid.class)
 	public void testSetD() throws NoSuchFieldException, IllegalAccessException {
-		ProductSetD productSetD = new ProductSetD();
+		Product productSetD = new Product();
 		Field field = productSetD.getClass().getDeclaredField("d");
 		field.setAccessible(true);
 		int newValue = 10;
@@ -65,7 +65,7 @@ public class ProductSetDTest {
 	@Test
 	@Category(Categories.valid.class)
 	public void testChangeD() throws NoSuchFieldException, IllegalAccessException {
-		ProductSetD productSetD = new ProductSetD();
+		Product productSetD = new Product();
 		Field field = productSetD.getClass().getDeclaredField("d");
 		field.setAccessible(true);
 		int oldValue = 5;
@@ -79,7 +79,7 @@ public class ProductSetDTest {
 	@Test
 	@Category(Categories.boundary.class)
 	public void testNegativeD() throws NoSuchFieldException, IllegalAccessException {
-		ProductSetD productSetD = new ProductSetD();
+		Product productSetD = new Product();
 		Field field = productSetD.getClass().getDeclaredField("d");
 		field.setAccessible(true);
 		int newValue = -10;
