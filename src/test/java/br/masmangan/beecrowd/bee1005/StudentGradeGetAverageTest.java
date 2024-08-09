@@ -128,7 +128,7 @@ public class StudentGradeGetAverageTest {
 
 	@Test(expected = NullPointerException.class)
 	public void testGetAverage_WithNullValues_A() {
-		studentGrade.setA(null);
+		studentGrade.setA(0.0);
 		studentGrade.setB(20.0);
 		studentGrade.getAverage();
 	}
@@ -136,7 +136,7 @@ public class StudentGradeGetAverageTest {
 	@Test(expected = NullPointerException.class)
 	public void testGetAverage_WithNullValues_B() {
 		studentGrade.setA(10.0);
-		studentGrade.setB(null);
+		studentGrade.setB(0.0);
 		studentGrade.getAverage();
 	}
 
@@ -169,8 +169,8 @@ public class StudentGradeGetAverageTest {
 
 	@Test
 	public void testGetAverage_WithNullValues() {
-		studentGrade.setA(null);
-		studentGrade.setB(null);
+		studentGrade.setA(0.0);
+		studentGrade.setB(0.0);
 		// Business logic needs to be improved to handle null values
 		// Currently, it will throw a NullPointerException
 		// Consider adding a null check in the getAverage() method

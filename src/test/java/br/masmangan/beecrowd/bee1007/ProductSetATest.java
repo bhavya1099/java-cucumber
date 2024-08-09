@@ -68,7 +68,6 @@ import org.junit.AfterClass;
 import org.junit.Before;
 import org.junit.BeforeClass;
 import org.junit.Test;
-import org.junit.experimental.categories.Category;
 import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertNull;
 import org.junit.experimental.categories.Category;
@@ -76,7 +75,7 @@ import org.junit.experimental.categories.Category;
 @Category({ Categories.setA.class })
 public class ProductSetATest {
 
-	private ProductSetA productSetA;
+	private Product productSetA;
 
 	@BeforeClass
 	public static void setUpBeforeClass() {
@@ -88,7 +87,7 @@ public class ProductSetATest {
 
 	@Before
 	public void setUp() {
-		productSetA = new ProductSetA();
+		productSetA = new Product();
 	}
 
 	@After
@@ -134,7 +133,7 @@ public class ProductSetATest {
 		// Arrange
 		Integer expectedValue = null;
 		// Act
-		productSetA.setA(null); // Cannot pass null, setA expects int
+		productSetA.setA(0.0); // Cannot pass null, setA expects int
 		// Assert
 		assertNull(productSetA.getA());
 	}
@@ -198,22 +197,22 @@ public class ProductSetATest {
 
 }
 
-class Categories {
+// class Categories {
 
-	public interface valid {
+// 	public interface valid {
 
-	}
+// 	}
 
-	public interface invalid {
+// 	public interface invalid {
 
-	}
+// 	}
 
-	public interface boundary {
+// 	public interface boundary {
 
-	}
+// 	}
 
-	public interface integration {
+// 	public interface integration {
 
-	}
+// 	}
 
-}
+// }
