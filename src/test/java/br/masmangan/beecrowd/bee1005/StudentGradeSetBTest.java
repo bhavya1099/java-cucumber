@@ -59,7 +59,7 @@ public class StudentGradeSetBTest {
     @Test
     public void testSetPositiveValueToB() {
         // Arrange
-        StudentGradeSetB studentGradeSetB = new StudentGradeSetB();
+        StudentGrade studentGradeSetB = new StudentGrade();
         double positiveValue = 10.0;
         // Act
         studentGradeSetB.setB(positiveValue);
@@ -69,7 +69,7 @@ public class StudentGradeSetBTest {
     @Test
     public void testSetNegativeValueToB() {
         // Arrange
-        StudentGradeSetB studentGradeSetB = new StudentGradeSetB();
+        StudentGrade studentGradeSetB = new StudentGrade();
         double negativeValue = -10.0;
         // Act
         studentGradeSetB.setB(negativeValue);
@@ -79,7 +79,7 @@ public class StudentGradeSetBTest {
     @Test
     public void testSetZeroToB() {
         // Arrange
-        StudentGradeSetB studentGradeSetB = new StudentGradeSetB();
+        StudentGrade studentGradeSetB = new StudentGrade();
         double zeroValue = 0.0;
         // Act
         studentGradeSetB.setB(zeroValue);
@@ -89,7 +89,7 @@ public class StudentGradeSetBTest {
     @Test
     public void testSetLargeValueToB() {
         // Arrange
-        StudentGradeSetB studentGradeSetB = new StudentGradeSetB();
+        StudentGrade studentGradeSetB = new StudentGrade();
         double largeValue = Double.MAX_VALUE;
         // Act
         studentGradeSetB.setB(largeValue);
