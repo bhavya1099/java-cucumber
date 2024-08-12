@@ -73,11 +73,11 @@ import org.junit.experimental.categories.Category;
 @Category({ Categories.setC.class })
 public class ProductSetCTest {
 
-	private ProductSetC productSetC;
+	private Product productSetC;
 
 	@Before
 	public void setUp() {
-		productSetC = new ProductSetC();
+		productSetC = new Product();
 	}
 
 	@After
