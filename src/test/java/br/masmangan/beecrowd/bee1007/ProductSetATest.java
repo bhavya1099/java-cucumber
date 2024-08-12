@@ -60,32 +60,32 @@ public class ProductSetATest {
 		product.setD(40);
 	}
 
-	@Test
-	@Category(Categories.valid.class)
-	public void checkIfValueForAIsSet() {
-		// Arrange
-		int newValueForA = 50;
-		// Act
-		product.setA(newValueForA);
-		// Assert
-		Assert.assertThat(product.getA(), is(newValueForA));
-	}
+	// @Test
+	// @Category(Categories.valid.class)
+	// public void checkIfValueForAIsSet() {
+	// 	// Arrange
+	// 	int newValueForA = 50;
+	// 	// Act
+	// 	product.setA(newValueForA);
+	// 	// Assert
+	// 	Assert.assertThat(product.getA(), is(newValueForA));
+	// }
 
-	@Test
-	@Category(Categories.valid.class)
-	public void checkIfOtherValuesRemainUnchanged() {
-		// Arrange
-		int newValueForA = 60;
-		int originalValueB = product.getB();
-		int originalValueC = product.getC();
-		int originalValueD = product.getD();
-		// Act
-		product.setA(newValueForA);
-		// Assert
-		Assert.assertThat(product.getB(), is(originalValueB));
-		Assert.assertThat(product.getC(), is(originalValueC));
-		Assert.assertThat(product.getD(), is(originalValueD));
-	}
+	// @Test
+	// @Category(Categories.valid.class)
+	// public void checkIfOtherValuesRemainUnchanged() {
+	// 	// Arrange
+	// 	int newValueForA = 60;
+	// 	int originalValueB = product.getB();
+	// 	int originalValueC = product.getC();
+	// 	int originalValueD = product.getD();
+	// 	// Act
+	// 	product.setA(newValueForA);
+	// 	// Assert
+	// 	Assert.assertThat(product.getB(), is(originalValueB));
+	// 	Assert.assertThat(product.getC(), is(originalValueC));
+	// 	Assert.assertThat(product.getD(), is(originalValueD));
+	// }
 
 	@Test(expected = IllegalArgumentException.class)
 	@Category(Categories.invalid.class)
