@@ -124,7 +124,7 @@ public class ProductGetDifferenceTest {
 	@Test(expected = NullPointerException.class)
 	@Category(Categories.invalid.class)
 	public void testMultiplicationDifferenceWithNullValues() {
-		a = null;
+		a = 0;
 		getDifference();
 	}
 
