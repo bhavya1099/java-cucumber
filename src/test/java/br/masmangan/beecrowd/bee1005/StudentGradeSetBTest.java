@@ -69,7 +69,7 @@ The assertion aims to verify that the `setB` method throws a `NullPointerExcepti
 package br.masmangan.beecrowd.bee1005;
 
 import org.junit.Test;
-import org.junit.category.Category;
+// import org.junit.category.Category;
 import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertThrows;
 import org.junit.experimental.categories.Category;
