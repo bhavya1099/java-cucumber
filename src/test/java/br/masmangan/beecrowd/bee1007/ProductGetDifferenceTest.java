@@ -83,10 +83,10 @@ public class ProductGetDifferenceTest {
 	public void testGetDifferenceWithPositiveNumbers() {
 		// Arrange
 		Product product = new Product();
-		product.a = 10;
-		product.b = 20;
-		product.c = 30;
-		product.d = 40;
+		product.setA(10);
+		product.setB(20);
+		product.setC( 30);
+		product.setD(40);
 		// Act
 		int actual = product.getDifference();
 		// Assert
@@ -146,10 +146,10 @@ public class ProductGetDifferenceTest {
 	public void testGetDifferenceWithNullValues() {
 		// Arrange
 		Product product = new Product();
-		product.a = null; // TODO: Change the value
-		product.b = null; // TODO: Change the value
-		product.c = null; // TODO: Change the value
-		product.d = null; // TODO: Change the value
+		product.setA(0); // TODO: Change the value
+		product.setB(0); // TODO: Change the value
+		product.setC(0); // TODO: Change the value
+		product.setD(0); // TODO: Change the value
 		// Act
 		product.getDifference();
 	}
@@ -159,10 +159,10 @@ public class ProductGetDifferenceTest {
 	public void testGetDifferenceWithOverflow() {
 		// Arrange
 		Product product = new Product();
-		product.a = Integer.MAX_VALUE;
-		product.b = Integer.MAX_VALUE;
-		product.c = Integer.MAX_VALUE;
-		product.d = Integer.MAX_VALUE;
+		product.setA(Integer.MAX_VALUE);
+		product.setB(Integer.MAX_VALUE);
+		product.setC(Integer.MAX_VALUE);
+		product.setD(Integer.MAX_VALUE);
 		// Act
 		int actual = product.getDifference();
 		// Assert
@@ -175,10 +175,10 @@ public class ProductGetDifferenceTest {
 	public void testGetDifferenceWithUnderflow() {
 		// Arrange
 		Product product = new Product();
-		product.a = Integer.MIN_VALUE;
-		product.b = Integer.MIN_VALUE;
-		product.c = Integer.MIN_VALUE;
-		product.d = Integer.MIN_VALUE;
+		product.setA(Integer.MIN_VALUE);
+		product.setB(Integer.MIN_VALUE);
+		product.setC(Integer.MIN_VALUE);
+		product.setD(Integer.MIN_VALUE);
 		// Act
 		int actual = product.getDifference();
 		// Assert
