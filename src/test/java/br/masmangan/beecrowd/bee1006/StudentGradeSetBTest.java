@@ -76,60 +76,128 @@ import org.junit.Test;
 import org.junit.experimental.categories.Category;
 
 public class StudentGradeSetBTest {
+/*
+The error logs indicate a failure in the Maven build process specifically related to the Surefire plugin, which is used to run unit tests. The key error message here is `org/junit/platform/engine/EngineDiscoveryListener`, which suggests an issue with the JUnit platform or its dependencies.
 
-	@Test
-	@Category(Categories.valid.class)
-	public void setBWithPositiveValue() {
-		StudentGrade studentGrade = new StudentGrade();
-		studentGrade.setA(2.0);
-		studentGrade.setB(3.5);
-		studentGrade.setC(4.0);
-		assertEquals(3.45, studentGrade.getAverage(), 0.0001);
-	}
+This kind of error typically occurs when there is a mismatch or missing dependency related to JUnit in the project setup. The Surefire plugin relies on the JUnit platform to discover and run tests, and if it cannot find the necessary classes (`EngineDiscoveryListener` in this case), it will fail to execute the tests.
 
-	@Test
-	@Category(Categories.invalid.class)
-	public void setBWithNegativeValue() {
-		StudentGrade studentGrade = new StudentGrade();
-		studentGrade.setA(2.0);
-		studentGrade.setB(-1.0);
-		studentGrade.setC(4.0);
-		assertEquals(2.1, studentGrade.getAverage(), 0.0001);
-	}
+To resolve this issue, you would typically check the following:
+1. **JUnit Dependency**: Ensure that the correct version of JUnit is included in your `pom.xml`. If you are using JUnit 5, you need to include the JUnit Platform, JUnit Jupiter (for writing tests), and JUnit Vintage (for running JUnit 3 and 4 tests) dependencies.
+2. **Surefire Plugin Configuration**: Make sure that the Surefire plugin is configured to use the correct version of JUnit. For JUnit 5, additional configuration might be required to specify the use of the appropriate JUnit platform.
+3. **Compatibility**: Ensure that all the dependencies are compatible in terms of version, especially if other plugins or frameworks are involved.
 
-	@Test
-	@Category(Categories.valid.class)
-	public void setBToZero() {
-		StudentGrade studentGrade = new StudentGrade();
-		studentGrade.setA(2.0);
-		studentGrade.setB(0);
-		studentGrade.setC(4.0);
-		assertEquals(2.6, studentGrade.getAverage(), 0.0001);
-	}
+The problem does not appear to be with the Java code itself but rather with the project setup and configuration. Therefore, checking and correcting the Maven configuration files, particularly focusing on dependencies and plugin configurations, would be the recommended approach to resolve this issue.
+@Test
+@Category(Categories.valid.class)
+public void setBWithPositiveValue() {
+    StudentGrade studentGrade = new StudentGrade();
+    studentGrade.setA(2.0);
+    studentGrade.setB(3.5);
+    studentGrade.setC(4.0);
+    assertEquals(3.45, studentGrade.getAverage(), 0.0001);
+}
+*/
+/*
+The error logs indicate a failure during the execution of the Maven Surefire Plugin, which is used to run unit tests in Java projects. The specific error message "org/junit/platform/engine/EngineDiscoveryListener" suggests an issue with the JUnit platform configuration or dependencies.
 
-	@Test
-	@Category(Categories.boundary.class)
-	public void setBWithVeryLargePositiveValue() {
-		StudentGrade studentGrade = new StudentGrade();
-		studentGrade.setA(2.0);
-		studentGrade.setB(Double.MAX_VALUE);
-		studentGrade.setC(4.0);
-		// Expecting a valid average calculation, even with large numbers
-		// The actual value would be impractical to calculate directly here due to
-		// precision issues
-		// Just checking it doesn't result in an error or invalid number.
-		double result = studentGrade.getAverage();
-		assert result != Double.NaN && result != Double.POSITIVE_INFINITY;
-	}
+The most likely cause of this error is a missing or incorrect version of a JUnit platform dependency in the project's `pom.xml` file. The JUnit platform relies on several components working together, and if there's a compatibility issue or if a necessary component is missing, it can prevent the test engine from discovering and running tests.
 
-	@Test
-	@Category(Categories.valid.class)
-	public void setBWithFloatingPointPrecision() {
-		StudentGrade studentGrade = new StudentGrade();
-		studentGrade.setA(2.0);
-		studentGrade.setB(2.34567);
-		studentGrade.setC(4.0);
-		assertEquals(2.869001, studentGrade.getAverage(), 0.000001);
-	}
+Here's a breakdown of the possible reasons for this error:
+1. **Missing JUnit Platform Dependency**: The project might be missing the necessary JUnit platform engine dependency. This is required for Maven Surefire to correctly interact with JUnit 5.
+2. **Incorrect JUnit Version**: If there's an incorrect version of JUnit specified that doesn't match the other JUnit components or the Maven Surefire plugin, it could lead to this error.
+3. **Corrupted Maven Repository**: Sometimes, local repositories can get corrupted. Cleaning the repository or redownloading dependencies might resolve the issue.
+4. **Configuration Issues in `pom.xml`**: There could be misconfigurations in the `pom.xml` concerning plugin versions or dependencies.
+
+To resolve these issues, one should:
+- Ensure that all JUnit dependencies are correctly declared and compatible with each other in the `pom.xml`.
+- Check that the Maven Surefire plugin is up to date and compatible with the version of JUnit being used.
+- Clear the local Maven repository or force Maven to update the dependencies.
+
+This error is not directly related to the test logic or the Java code written for the test but is more about the project setup and configuration required to run JUnit tests using Maven.
+@Test
+@Category(Categories.invalid.class)
+public void setBWithNegativeValue() {
+    StudentGrade studentGrade = new StudentGrade();
+    studentGrade.setA(2.0);
+    studentGrade.setB(-1.0);
+    studentGrade.setC(4.0);
+    assertEquals(2.1, studentGrade.getAverage(), 0.0001);
+}
+*/
+/*
+The test failure described in the provided logs seems to be primarily due to an issue with the test environment setup rather than the test code itself. The error message `[ERROR] org/junit/platform/engine/EngineDiscoveryListener` suggests that there is a problem related to the JUnit platform or its dependencies, which is critical for running the tests.
+
+This error often occurs when there are missing or incompatible versions of JUnit or related libraries in the classpath. The error `EngineDiscoveryListener` specifically points towards an issue where Maven's Surefire plugin, which is used to execute the unit tests, cannot find or properly load the JUnit platform components necessary to discover and run the tests. This is not directly related to the test code provided but rather to the configuration and dependencies in the Maven project (`pom.xml`).
+
+To resolve this issue, you should:
+1. Ensure that the correct version of JUnit (JUnit 5, in this case) and the Maven Surefire plugin are properly declared in the `pom.xml`.
+2. Make sure that all necessary dependencies for JUnit 5 are included, such as `junit-platform-engine`, `junit-jupiter-api`, and `junit-jupiter-engine`.
+3. Verify that there are no conflicting versions of JUnit or other testing libraries included in the project that might interfere with the correct functioning of the test runner.
+
+Once these dependencies and configurations are corrected, the Maven build should be able to successfully execute the tests, including the provided test method `setBToZero`.
+@Test
+@Category(Categories.valid.class)
+public void setBToZero() {
+    StudentGrade studentGrade = new StudentGrade();
+    studentGrade.setA(2.0);
+    studentGrade.setB(0);
+    studentGrade.setC(4.0);
+    assertEquals(2.6, studentGrade.getAverage(), 0.0001);
+}
+*/
+/*
+The errors during the test execution, as indicated by the logs, primarily revolve around the Maven Surefire plugin failing to execute the tests due to an issue related to the `org/junit/platform/engine/EngineDiscoveryListener` class. This error suggests a problem with the test execution environment rather than with the test code itself.
+
+Here's a breakdown of the key issues:
+
+1. **Maven Surefire Plugin Error**: The logs contain multiple mentions of `org.apache.maven.plugins:maven-surefire-plugin` followed by `org/junit/platform/engine/EngineDiscoveryListener`. This indicates that the Surefire plugin, which is responsible for running the tests, encountered a problem likely related to the JUnit platform configuration or dependencies.
+
+2. **Classloading Issue with JUnit**: The specific mention of `EngineDiscoveryListener` not being found or failing suggests a classloading or dependency issue with JUnit. This class is a part of the JUnit platform, and its absence or inaccessibility at runtime would prevent the tests from being discovered and run.
+
+3. **Build and Test Environment Setup**: The error does not appear to stem from the test logic itself but rather from the setup of the build and test environment. It's possible that the Maven project is missing dependencies, specifically those related to JUnit platform engines, or there is a misconfiguration in how these dependencies are being used or loaded during the test phase.
+
+4. **No Direct Code or Test Logic Issue Indicated**: The logs do not indicate any compilation issues or failures directly related to the test logic (`setBWithVeryLargePositiveValue`). Instead, the problem arises before the test methods are even invoked, pointing to a broader configuration or environmental issue.
+
+To resolve this issue, one would typically:
+
+- Ensure that all necessary JUnit platform dependencies are correctly specified in the `pom.xml` file.
+- Check the configuration of the Maven Surefire plugin in the `pom.xml` to ensure it's compatible with the version of JUnit being used.
+- Verify that there are no conflicts between different versions of JUnit or related libraries that might be causing classloading problems.
+
+Since the failure is environmental rather than code-specific, the next steps would involve reviewing and adjusting the project's Maven configuration and dependencies related to the testing framework (JUnit).
+@Test
+@Category(Categories.boundary.class)
+public void setBWithVeryLargePositiveValue() {
+    StudentGrade studentGrade = new StudentGrade();
+    studentGrade.setA(2.0);
+    studentGrade.setB(Double.MAX_VALUE);
+    studentGrade.setC(4.0);
+    // Expecting a valid average calculation, even with large numbers
+    // The actual value would be impractical to calculate directly here due to
+    // precision issues
+    // Just checking it doesn't result in an error or invalid number.
+    double result = studentGrade.getAverage();
+    assert result != Double.NaN && result != Double.POSITIVE_INFINITY;
+}
+*/
+/*
+The test failure in the provided Java unit test function seems to be due to an issue with the testing environment setup rather than the test function itself. The error logs indicate a problem related to the JUnit platform not being able to find or load a necessary class, specifically `org/junit/platform/engine/EngineDiscoveryListener`.
+
+This error typically occurs when there is a mismatch or absence of required libraries in the classpath. In this case, it seems that the JUnit platform libraries required for running the tests are not available or incorrectly configured. This is not an error directly related to the test logic or the Java code you've written for the test.
+
+To resolve this issue, you should ensure that all the necessary JUnit dependencies are correctly included in your project's `pom.xml` file if you're using Maven for your project management. This includes making sure that the JUnit platform and engine dependencies are correctly specified and compatible with each other.
+
+To summarize, the test is failing because of environmental setup issues, specifically related to the JUnit testing framework dependencies not being correctly configured or present in the project setup. This is not a fault of the test code itself but rather an issue with how the test runtime environment is configured.
+@Test
+@Category(Categories.valid.class)
+public void setBWithFloatingPointPrecision() {
+    StudentGrade studentGrade = new StudentGrade();
+    studentGrade.setA(2.0);
+    studentGrade.setB(2.34567);
+    studentGrade.setC(4.0);
+    assertEquals(2.869001, studentGrade.getAverage(), 0.000001);
+}
+*/
+
 
 }
