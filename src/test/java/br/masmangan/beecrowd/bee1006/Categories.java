@@ -1,5 +1,6 @@
 package br.masmangan.beecrowd.bee1006;
- public interface Categories {
+
+public interface Categories {
 
 	interface valid {
 
@@ -21,6 +22,12 @@ package br.masmangan.beecrowd.bee1006;
 
 	}
 
- interface setB{}
- 
+	interface setB {
+
+	}
+
+	interface setC {
+
+	}
+
 }
