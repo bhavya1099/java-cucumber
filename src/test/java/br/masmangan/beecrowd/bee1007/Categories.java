@@ -1,5 +1,6 @@
 package br.masmangan.beecrowd.bee1007;
- public interface Categories {
+
+public interface Categories {
 
 	interface valid {
 
@@ -25,8 +26,20 @@ package br.masmangan.beecrowd.bee1007;
 
 	}
 
- interface setB{}
- interface setC{}
- 
- interface setD{}
+	interface setB {
+
+	}
+
+	interface setC {
+
+	}
+
+	interface setD {
+
+	}
+
+	interface getDifference {
+
+	}
+
 }
