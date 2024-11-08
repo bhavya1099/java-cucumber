@@ -87,51 +87,160 @@ public class StudentGradeGetAverageTest {
 	public void setUp() {
 		studentGrade = new StudentGrade();
 	}
+/*
+The provided error logs reveal a critical failure during the test execution phase of the Maven build process, specifically related to the Maven Surefire plugin, which is responsible for running tests. The key error message here is:
 
-	@Test
-	@Category(Categories.valid.class)
-	public void calculateAverageWithPositiveScores() {
-		studentGrade.setA(30.0);
-		studentGrade.setB(40.0);
-		double expected = (30 * 3.5 + 40 * 7.5) / 11.0;
-		assertEquals("Average calculation with positive scores.", expected, studentGrade.getAverage(), 0.001);
-	}
+```
+[ERROR] org/junit/platform/engine/EngineDiscoveryListener
+```
 
-	@Test
-	@Category(Categories.valid.class)
-	public void calculateAverageWithZeroScores() {
-		studentGrade.setA(0);
-		studentGrade.setB(0);
-		double expected = 0.0;
-		assertEquals("Average calculation with zero scores.", expected, studentGrade.getAverage(), 0.001);
-	}
+This error indicates that there's a problem with the JUnit Platform setup. The `EngineDiscoveryListener` is a component of JUnit that provides feedback about the discovery of test engines, their configuration, and their execution plans. The presence of this error suggests that the testing framework (JUnit) might not be set up correctly or is encountering an issue locating or initializing the test engine.
 
-	@Test
-	@Category(Categories.invalid.class)
-	public void calculateAverageWithNegativeScores() {
-		studentGrade.setA(-10);
-		studentGrade.setB(-20);
-		double expected = ((-10) * 3.5 + (-20) * 7.5) / 11.0;
-		assertEquals("Average calculation with negative scores.", expected, studentGrade.getAverage(), 0.001);
-	}
+Since this error does not stem from compilation issues (as the compilation steps `compile` and `testCompile` completed successfully), nor does it directly implicate issues with the test codes provided (like logic errors or compilation failures within the test function itself), the root cause is likely associated with a configuration or environment issue related to how Maven or JUnit is set up:
 
-	@Test
-	@Category(Categories.boundary.class)
-	public void calculateAverageWithMaxBoundaryValues() {
-		studentGrade.setA(Double.MAX_VALUE);
-		studentGrade.setB(Double.MAX_VALUE);
-		double result = studentGrade.getAverage();
-		assertTrue("Average calculation with maximum boundary values should be a finite number.",
-				Double.isFinite(result));
-	}
+1. **JUnit Version Compatibility**: The version of JUnit included might not be compatible with other project dependencies or the Surefire plugin configuration.
+2. **Surefire Plugin Configuration**: The Maven Surefire plugin might not be configured correctly, or there may be incompatibilities with the versions of the Surefire plugin and JUnit framework being used.
+3. **Classpath Issues**: There could be classpath issues where required classes (like the mentioned `EngineDiscoveryListener`) are not found or not loaded due to classloader constraints.
 
-	@Test
-	@Category(Categories.valid.class)
-	public void calculateAverageWithMismatchedScales() {
-		studentGrade.setA(1);
-		studentGrade.setB(1000);
-		double expected = (1 * 3.5 + 1000 * 7.5) / 11.0;
-		assertEquals("Average calculation with mismatched scales.", expected, studentGrade.getAverage(), 0.001);
-	}
+The necessary steps to resolve such issues would typically involve:
+- Ensuring the correct version of JUnit is being used that is compatible with other tools and libraries in the project.
+- Reviewing and potentially updating the Maven Surefire configuration in the project's POM file.
+- Checking dependencies for any version conflicts or missing dependencies that could be affecting the JUnit Platform's test discovery and execution process.
+
+Resolving these issues will likely help in successfully running the specified test case and properly evaluating the `getAverage()` method's logic as intended.
+@Test
+@Category(Categories.valid.class)
+public void calculateAverageWithPositiveScores() {
+    studentGrade.setA(30.0);
+    studentGrade.setB(40.0);
+    double expected = (30 * 3.5 + 40 * 7.5) / 11.0;
+    assertEquals("Average calculation with positive scores.", expected, studentGrade.getAverage(), 0.001);
+}
+*/
+/*
+The provided Maven build logs indicate a failure in the testing phase caused by a "SurefireBooterForkException" specifically referencing a missing or inaccessible class `org/junit/platform/engine/EngineDiscoveryListener`. This class is part of the JUnit platform which is used to discover and execute tests.
+
+This error typically arises due to a few potential causes:
+
+1. **Dependency Issues**: The version of JUnit or related dependencies included in the project’s build configuration (pom.xml) may not be compatible, or necessary dependencies might be missing altogether. This kind of issue can prevent the test framework from correctly discovering and running tests.
+
+2. **Classpath Problems**: There might be an issue with how the classpath is set up in the Maven configuration. If the JUnit platform classes aren't correctly added to the classpath, Maven cannot load these classes which results in the observed error.
+
+3. **JUnit Platform Configuration**: If the project is intended to use a specific version of JUnit (for example, JUnit 5) but the Maven Surefire plugin configuration is not aligned with this, it could fail to load the right engine discovery classes, causing the process to error out.
+
+To resolve such issues, you might typically:
+- Ensure that the Maven Surefire plugin is updated and configured correctly to work with the JUnit version being used.
+- Verify that the correct dependencies for JUnit are specified in the `pom.xml` with the correct versions.
+- Check and adjust the project's classpath configuration if necessary.
+
+The specific test method `calculateAverageWithZeroScores` is not at fault here based on this error log. The problem lies in the project setup and configuration for Maven and JUnit, which needs attention to ensure that the testing framework can discover and execute the test cases as intended. The actual test logic itself is not executed due to this configuration problem, so no results about passing or failing of the written test logic are available, and addressing the configuration should be the first step.
+@Test
+@Category(Categories.valid.class)
+public void calculateAverageWithZeroScores() {
+    studentGrade.setA(0);
+    studentGrade.setB(0);
+    double expected = 0.0;
+    assertEquals("Average calculation with zero scores.", expected, studentGrade.getAverage(), 0.001);
+}
+*/
+/*
+The error logs indicate a failure due to a significant issue relating to the test execution environment, particularly the JUnit platform and its integration with the Maven Surefire plugin.
+
+The specific error message provided is:
+```
+[ERROR] org/junit/platform/engine/EngineDiscoveryListener
+```
+This suggests that there is an issue related to the JUnit platform engine which is a critical component used by the JUnit 5 framework for discovering tests and notifying listeners about events during test execution.
+
+The failure occurs during the phase controlled by Maven's Surefire plugin, which is responsible for running tests. The problem doesn't seem to point directly to a flaw in your specific test method's logic or syntax but rather indicates a setup or configuration issue concerning Maven dependencies or the classpath.
+
+Here are potential reasons for this error:
+
+1. **JUnit Dependency Issues**: The project might be missing the required dependencies for JUnit 5, or there could be a mismatch between the versions of JUnit and the Maven Surefire plugin. This often happens if the dependencies specified in the `pom.xml` are not sufficient or compatible for running JUnit 5 tests.
+
+2. **Classpath Configuration**: There could be an issue with how the classpath has been configured, leading to an inability to find or correctly load the `EngineDiscoveryListener` class. This could result from improper Maven configuration or missing dependencies.
+
+3. **Plugin Compatibility**: The version of the Maven Surefire plugin may not be compatible with the version of JUnit used in the project. The latest versions of the Surefire plugin are required to run JUnit 5 tests effectively.
+
+**Recommended Actions**:
+- Ensure that the necessary JUnit Jupiter API and Engine dependencies are included in the project with the correct versions.
+- Check and update the Maven Surefire plugin to a version that supports JUnit 5, typically version 2.22.0 or higher.
+- Verify all related dependencies and plugins for compatibility and correct configuration in the `pom.xml`.
+
+These steps should resolve the issues with the test execution environment and eliminate the `EngineDiscoveryListener` related errors. Once these configuration issues are addressed, the test should run, and further verification of the test case logic or other failures can be conducted.
+
+@Test
+@Category(Categories.invalid.class)
+public void calculateAverageWithNegativeScores() {
+    studentGrade.setA(-10);
+    studentGrade.setB(-20);
+    double expected = ((-10) * 3.5 + (-20) * 7.5) / 11.0;
+    assertEquals("Average calculation with negative scores.", expected, studentGrade.getAverage(), 0.001);
+}
+*/
+/*
+The provided error logs indicate a failure in the Maven build process specifically related to the Surefire plugin used to run unit tests. The significant error message here is:
+
+```
+[ERROR] org/junit/platform/engine/EngineDiscoveryListener
+```
+
+This error suggests an issue with loading the JUnit Platform Engine Discovery Listener. The nature of this error indicates that Maven is unable to instantiate or use the listener, which is crucial for discovering tests to run under the JUnit framework. Several potential causes could lead to this error:
+
+1. **Classpath Issues**: The classpath might not correctly include all necessary JUnit platform components. This can happen if the Maven dependencies are not correctly set up or if there's an issue with the versions of JUnit or related libraries being included.
+
+2. **JUnit Platform Configuration**: There could be a misconfiguration in how the JUnit platform is set up or expected to run. This might relate to specific configurations in the `pom.xml` for the Maven Surefire plugin.
+
+3. **Compatibility Issues**: The versions of Maven, the Surefire plugin, or the JUnit library might not be compatible with each other. Compatibility issues can lead to classes not being found if, for instance, the plugin or tool expects a different version of the library than what's provided.
+
+None of these errors directly relates to the contents of the test method `calculateAverageWithMaxBoundaryValues`. The method sets maximum double values to `a` and `b` and then checks if the `getAverage()` method returns a finite number. This particular test aims to confirm that the average calculation handles situations where extremely high values could potentially lead to arithmetic overflow or inaccuracies due to floating-point precision limitations.
+
+To resolve these issues:
+- Ensure that all the necessary JUnit platform components are correctly included in the project's `pom.xml` file.
+- Check for compatible versions between the Surefire plugin, Maven, and the JUnit libraries.
+- Verify any configurations specified for the Surefire plugin in `pom.xml` that might affect the discovery of test cases.
+
++-+-+-+-+-+-+-+-+-+-+-+
+In conclusion, the test failure is not due to a logic error within the test case itself but is most likely due to a configuration or environment setup issue that prevents the JUnit testing framework from properly discovering and running the test.
+@Test
+@Category(Categories.boundary.class)
+public void calculateAverageWithMaxBoundaryValues() {
+    studentGrade.setA(Double.MAX_VALUE);
+    studentGrade.setB(Double.MAX_VALUE);
+    double result = studentGrade.getAverage();
+    assertTrue("Average calculation with maximum boundary values should be a finite number.", Double.isFinite(result));
+}
+*/
+/*
+The provided test function `calculateAverageWithMismatchedScales` and its associated test setup appear to be failing due to an issue unrelated to the test logic itself but rather stemming from the testing framework or environment setup.
+
+The build logs indicate a failure in the Maven build process, specifically with the surefire plugin, which is responsible for running the tests. The key error message here is:
+```
+[ERROR] org/junit/platform/engine/EngineDiscoveryListener
+```
+This error suggests that there is an issue with the JUnit platform setup, particularly with discovering test engines or listeners. This type of error can occur due to several reasons:
+
+1. **Dependency Conflict:** There might be conflicting versions of JUnit or related libraries in the project's dependencies. This can happen if different parts of the project use different versions of JUnit (e.g., JUnit 4 vs. JUnit 5) which are not compatible with each other.
+
+2. **Missing or Incorrect Dependencies:** The project may be missing required dependencies for the JUnit platform. This could include the JUnit platform engine itself or other essential libraries needed to run the tests.
+
+3. **Classpath Issues:** There may be problems with how the classpath is set up in the Maven project, which can prevent the test framework from locating and loading necessary classes and resources.
+
+To resolve this issue and get the test running successfully, you would need to:
+- Verify that all necessary JUnit dependencies are correctly specified in your `pom.xml` file.
+- Ensure there are no conflicting versions of JUnit or other testing libraries.
+- Check the configuration of the surefire plugin in the `pom.xml` to make sure it is aligned with the versions of JUnit being used.
+
+Once the environment and dependencies are correctly set up and the Maven build completes successfully, you should be able to execute the test and verify the business logic implementation of `getAverage()` method against the test conditions specified in `calculateAverageWithMismatchedScales`. However, based on the log, the issue seems purely environmental/setup related rather than a problem with the implementation of the test or method logic.
+@Test
+@Category(Categories.valid.class)
+public void calculateAverageWithMismatchedScales() {
+    studentGrade.setA(1);
+    studentGrade.setB(1000);
+    double expected = (1 * 3.5 + 1000 * 7.5) / 11.0;
+    assertEquals("Average calculation with mismatched scales.", expected, studentGrade.getAverage(), 0.001);
+}
+*/
+
 
 }
