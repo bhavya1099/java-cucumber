@@ -74,6 +74,8 @@ Act: Invoke the getDifference method.
 Assert: Assert that the returned value is negative.
 Validation:
 The assertion verifies that the method correctly calculates the difference when a and b are zero and c and d are non-zero. This test is significant as it verifies the method's functionality in a specific scenario.
+
+roost_feedback [1/27/2025, 11:09:52 AM]:improve the logic of the code
 */
 
 // ********RoostGPT********
@@ -87,64 +89,39 @@ import org.junit.jupiter.api.*;
 
 public class ProductGetDifferenceTest {
 
-	@Test
-	@Tag("valid")
-	public void testWhenAllVariablesAreZero() {
-		Product product = new Product();
-		product.setA(0);
-		product.setB(0);
-		product.setC(0);
-		product.setD(0);
-		int result = product.getDifference();
-		assertEquals(0, result);
-	}
+    @Test
+    @Tag("valid")
+    public void testWhenAllVariablesAreZero() {
+        Product product = new Product(0, 0, 0, 0);
+        assertEquals(0, product.getDifference());
+    }
 
-	@Test
-	@Tag("valid")
-	public void testWhenAandBAreGreaterThanCandD() {
-		Product product = new Product();
-		product.setA(5);
-		product.setB(5);
-		product.setC(2);
-		product.setD(2);
-		int result = product.getDifference();
-		assertEquals(21, result);
-	}
+    @Test
+    @Tag("valid")
+    public void testWhenAandBAreGreaterThanCandD() {
+        Product product = new Product(5, 5, 2, 2);
+        assertEquals(21, product.getDifference());
+    }
 
-	@Test
-	@Tag("valid")
-	public void testWhenCandDAreGreaterThanAandB() {
-		Product product = new Product();
-		product.setA(2);
-		product.setB(2);
-		product.setC(5);
-		product.setD(5);
-		int result = product.getDifference();
-		assertEquals(-21, result);
-	}
+    @Test
+    @Tag("valid")
+    public void testWhenCandDAreGreaterThanAandB() {
+        Product product = new Product(2, 2, 5, 5);
+        assertEquals(-21, product.getDifference());
+    }
 
-	@Test
-	@Tag("valid")
-	public void testWhenAllVariablesAreEqual() {
-		Product product = new Product();
-		product.setA(2);
-		product.setB(2);
-		product.setC(2);
-		product.setD(2);
-		int result = product.getDifference();
-		assertEquals(0, result);
-	}
+    @Test
+    @Tag("valid")
+    public void testWhenAllVariablesAreEqual() {
+        Product product = new Product(2, 2, 2, 2);
+        assertEquals(0, product.getDifference());
+    }
 
-	@Test
-	@Tag("valid")
-	public void testWhenAandBAreZeroAndCandDAreNonZero() {
-		Product product = new Product();
-		product.setA(0);
-		product.setB(0);
-		product.setC(5);
-		product.setD(5);
-		int result = product.getDifference();
-		assertEquals(-25, result);
-	}
+    @Test
+    @Tag("valid")
+    public void testWhenAandBAreZeroAndCandDAreNonZero() {
+        Product product = new Product(0, 0, 5, 5);
+        assertEquals(-25, product.getDifference());
+    }
 
 }
